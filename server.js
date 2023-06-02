@@ -1,11 +1,12 @@
 const express = require('express');
 const request = require('request');
+const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
-// Serve static files (including index.html)
-app.use(express.static('public'));
+// Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Proxy route
 app.get('/proxy', (req, res) => {
