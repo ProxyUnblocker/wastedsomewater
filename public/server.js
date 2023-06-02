@@ -2,7 +2,7 @@ const express = require('express');
 const request = require('request');
 
 const app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3000;
 
 // Serve static files (including index.html)
 app.use(express.static('public'));
