@@ -13,13 +13,18 @@ app.get('/proxy', (req, res) => {
   const url = req.query.url;
 
   // Make a request to the provided URL
-  request(url, (error, response, body) => {
+  request.get(url, (error, response, body) => {
     if (error) {
       res.status(500).send('Error');
     } else {
       res.send(body);
     }
   });
+});
+
+// Catch-all route for handling other requests
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Start the server
